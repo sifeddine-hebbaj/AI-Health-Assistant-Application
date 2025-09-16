@@ -1,0 +1,13 @@
+flowchart LR
+  U[User (Browser)] -->|HTTPS| FE[Frontend (React + Vite)]
+  FE -->|REST /api| BE[Backend (Spring Boot)]
+  BE -->|JPA| DB[(PostgreSQL)]
+  BE -- SMTP --> MAIL[(SMTP Provider)]
+  BE -- HTTP --> AI[(Mistral AI API)]
+
+  subgraph Client
+    FE
+  end
+  subgraph Server
+    BE
+  end

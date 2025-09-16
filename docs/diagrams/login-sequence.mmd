@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant U as User
+  participant FE as Frontend (React)
+  participant BE as Backend (Spring Boot)
+  participant DB as PostgreSQL
+
+  U->>FE: Submit credentials (email, password)
+  FE->>BE: POST /api/auth/login
+  BE->>DB: Validate user (email, password)
+  DB-->>BE: User record (valid/invalid)
+  BE-->>FE: 200 OK (user payload / token)
+  FE-->>U: Navigate to dashboard

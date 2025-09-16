@@ -1,0 +1,34 @@
+erDiagram
+  USERS {
+    UUID id PK
+    string first_name
+    string last_name
+    string email UK
+    string password
+    string role
+    timestamp created_at
+  }
+  DOCTORS {
+    UUID id PK
+    string first_name
+    string last_name
+    string specialty
+  }
+  APPOINTMENTS {
+    UUID id PK
+    timestamp scheduled_at
+    string status
+    text notes
+  }
+  ANALYSES {
+    UUID id PK
+    text symptoms
+    string risk_level
+    string suggested_specialty
+    text ai_recommendation
+    timestamp created_at
+  }
+
+  USERS ||--o{ APPOINTMENTS : books
+  DOCTORS ||--o{ APPOINTMENTS : receives
+  USERS ||--o{ ANALYSES : has
