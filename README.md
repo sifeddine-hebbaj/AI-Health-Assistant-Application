@@ -21,22 +21,20 @@ A complete web application where patients can enter symptoms, get AI-assisted an
 ### System Architecture
 
 ```mermaid
-graph LR
+flowchart LR
+  U[User]
+  FE[Frontend React+Vite]
+  BE[Backend Spring Boot]
+  DB[PostgreSQL]
+  MAIL[SMTP Provider]
+  AI[Mistral AI API]
 
-  U[User (Browser)] --> FE[Frontend (React + Vite)]
-  FE --> BE[Backend (Spring Boot)]
-  BE --> DB[(PostgreSQL)]
-  BE --> MAIL[(SMTP Provider)]
-  BE --> AI[(Mistral AI API)]
-
-  subgraph Client
-    FE
-  end
-  subgraph Server
-    BE
-  end
+  U --> FE
+  FE --> BE
+  BE --> DB
+  BE --> MAIL
+  BE --> AI
 ```
-
 
 ### Login Sequence
 
