@@ -21,12 +21,13 @@ A complete web application where patients can enter symptoms, get AI-assisted an
 ### System Architecture
 
 ```mermaid
-flowchart LR
-  U[User (Browser)] -->|HTTPS| FE[Frontend (React + Vite)]
-  FE -->|REST /api| BE[Backend (Spring Boot)]
-  BE -->|JPA| DB[(PostgreSQL)]
-  BE -- SMTP --> MAIL[(SMTP Provider)]
-  BE -- HTTP --> AI[(Mistral AI API)]
+graph LR
+
+  U[User (Browser)] --> FE[Frontend (React + Vite)]
+  FE --> BE[Backend (Spring Boot)]
+  BE --> DB[(PostgreSQL)]
+  BE --> MAIL[(SMTP Provider)]
+  BE --> AI[(Mistral AI API)]
 
   subgraph Client
     FE
@@ -36,7 +37,6 @@ flowchart LR
   end
 ```
 
-Image export placeholder: `docs/diagrams/architecture.png` (to be generated from the Mermaid above).
 
 ### Login Sequence
 
@@ -55,7 +55,6 @@ sequenceDiagram
   FE-->>U: Navigate to dashboard
 ```
 
-Image export placeholder: `docs/diagrams/login-sequence.png`.
 
 ### Data Model (ER)
 
@@ -96,7 +95,6 @@ erDiagram
   USERS ||--o{ ANALYSES : has
 ```
 
-Image export placeholder: `docs/diagrams/er-model.png`.
 
 ## What I Changed (Sanitization Before Publishing)
 
